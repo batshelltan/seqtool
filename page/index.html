@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>广泽幼儿园小工具</title>
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+</head>
+<body ontouchstart>
+    <div class="page__bd">
+        <div class="weui-panel weui-panel_access">
+            <div class="weui-panel__hd">广泽幼儿园小工具</div>
+            <div class="weui-panel__bd">
+                <a href="javascript:goSeqCheckPage();" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd" style="background-color: #3cc51f">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">接龙核对</h4>
+                        <p class="weui-media-box__desc">复制微信接龙文字，核对未接龙的家长名单。</p>
+                    </div>
+                </a>
+                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd" style="background-color: #10aeff">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">功能X</h4>
+                        <p class="weui-media-box__desc">功能建设中..</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function goSeqCheckPage() {
+            var url = "seqcheck.html";
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

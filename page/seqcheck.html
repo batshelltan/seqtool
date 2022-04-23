@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>接龙核对</title>
+    <link rel="stylesheet" href="css/weui.min.css">
+    <link rel="stylesheet" href="css/jquery-weui.css">
+    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
+    <script type="text/javascript" src="js/jquery-weui.js"></script>
+    <script type="text/javascript" src="js/clncfg.js"></script>
+</head>
+<body>
+    <header class="demos-header">
+        <h1 class="demos-title">接龙核对</h1>
+    </header>
+    <div class="weui-cells__title">学生名单选择</div>
+    <div class="weui-cells">
+        <div class="weui-cell weui-cell_select">
+            <div class="weui-cell__bd">
+                <select class="weui-select" id="classid">
+                    <option selected="" value="2021x4">广泽小四班</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="weui-cells__title">微信接龙内容</div>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__bd">
+                <textarea id="wechattxt" class="weui-textarea" placeholder="请输入微信接龙内容的文本信息" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="weui-btn-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:doSubmit()" id="doSubmit">确定</a>
+        <a href="javascript:goback();" id="goback" class="weui-btn weui-btn_default">返回</a>
+    </div>
+
+    <script type="text/javascript" >
+
+        function doSubmit() {
+            var classidVal = $.trim($("#classid").val());
+            var wechattxtVal = $.trim($("#wechattxt").val());
+            if(wechattxtVal == "") {
+                $.alert("请填写微信接龙内容的文本信息！");
+                return;
+            }
+            var res = clncfg.checkUnconnectNamelist(classidVal, wechattxtVal);
+            if (res.success == true) {
+                $.alert("所有学生都已接龙！");
+            } else {
+                var msg = "";
+                if(res.errNo == 0) {
+                    msg = res.errMsg;
+                } else {
+                    msg = "系统错误：" + res.errMsg;
+                }
+                $("#wechattxt").val(msg);
+                $.alert(msg);
+            }
+        }
+
+        function goback() {
+            var url = "index.html";
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
