@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
     <div class="weui-cells weui-cells_form">
         <div class="weui-cell">
             <div class="weui-cell__bd">
-                <textarea id="wechattxt" class="weui-textarea" placeholder="请输入微信接龙内容的文本信息" rows="10"></textarea>
+                <textarea id="wechattxt" class="weui-textarea" placeholder="在此粘贴微信接龙内容的文本信息" rows="10"></textarea>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
             var classidVal = $.trim($("#classid").val());
             var wechattxtVal = $.trim($("#wechattxt").val());
             if(wechattxtVal == "") {
-                $.alert("请填写微信接龙内容的文本信息！");
+                $.alert("请输入微信接龙内容的文本信息！");
                 return;
             }
             var res = clncfg.checkUnconnectNamelist(classidVal, wechattxtVal);
