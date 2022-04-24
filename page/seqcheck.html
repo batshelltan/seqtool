@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>接龙核对</title>
-    <link rel="stylesheet" href="css/weui.min.css">
-    <link rel="stylesheet" href="css/jquery-weui.css">
-    <script type="text/javascript" src="js/jquery-2.1.4.js"></script>
-    <script type="text/javascript" src="js/jquery-weui.js"></script>
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/2.0.1/weui.min.css">
+    <script type="text/javascript" src="https://res.wx.qq.com/t/wx_fed/cdn_libs/res/weui/1.2.3/weui.min.js"></script>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/clncfg.js"></script>
 </head>
 <body>
@@ -44,12 +43,12 @@
             var classidVal = $.trim($("#classid").val());
             var wechattxtVal = $.trim($("#wechattxt").val());
             if(wechattxtVal == "") {
-                $.alert("请输入微信接龙内容的文本信息！");
+                weui.alert("请输入微信接龙内容的文本信息！");
                 return;
             }
             var res = clncfg.checkUnconnectNamelist(classidVal, wechattxtVal);
             if (res.success == true) {
-                $.alert("所有学生都已接龙！");
+                weui.alert("所有学生都已接龙！");
             } else {
                 var msg = "";
                 if(res.errNo == 0) {
@@ -58,7 +57,7 @@
                     msg = "系统错误：" + res.errMsg;
                 }
                 $("#wechattxt").val(msg);
-                $.alert(msg);
+                weui.alert(msg);
             }
         }
 
