@@ -11,16 +11,13 @@
     <script type="text/javascript" src="js/clncfg.js"></script>
 </head>
 <body>
-    <header class="demos-header">
-        <h1 class="demos-title">接龙核对</h1>
-    </header>
+    <div class="weui-panel__hd">广泽幼儿园小工具</div>
     <div class="weui-cells__title">学生名单选择</div>
     <div class="weui-cells">
         <div class="weui-cell weui-cell_select">
             <div class="weui-cell__bd">
-                <select class="weui-select" id="classid">
-                    <option selected="" value="2021x4">广泽小四班</option>
-                </select>
+                <div id="classSelectDiv" class="weui-select" onclick="selectClassid()">广泽小四班</div>
+                <input id="classid" type="hidden" />
             </div>
         </div>
     </div>
@@ -38,10 +35,38 @@
     </div>
 
     <script type="text/javascript" >
+        
+        function selectClassid() {
+            weui.picker([
+                {
+                    label: '广泽小四班',
+                    value: "2021x4",
+                },
+                {
+                    label: '其它',
+                    value: ""
+                }
+            ], {
+                container: 'body',
+                defaultValue: ["2021x4"],
+                onChange: function (result) {
+                    //console.log(result)
+                },
+                onConfirm: function (result) {
+                    var itemData = result[0];
+                    $("#classSelectDiv").html(itemData.label);
+                    $("#classid").val(itemData.value);
+                }
+            });
+        }
 
         function doSubmit() {
             var classidVal = $.trim($("#classid").val());
             var wechattxtVal = $.trim($("#wechattxt").val());
+            if(classidVal == "") {
+                weui.alert("请选择学生名单！");
+                return;
+            }
             if(wechattxtVal == "") {
                 weui.alert("请输入微信接龙内容的文本信息！");
                 return;
