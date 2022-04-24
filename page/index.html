@@ -22,19 +22,27 @@
                         <p class="weui-media-box__desc">复制微信接龙文字，核对未接龙的家长名单。</p>
                     </div>
                 </a>
-                <a href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                <a href="javascript:goIntroductionPage();" class="weui-media-box weui-media-box_appmsg">
                     <div class="weui-media-box__hd" style="background-color: #10aeff">
                     </div>
                     <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title">广泽幼儿园简介</h4>
+                        <p class="weui-media-box__desc">广育玩童，泽被未来</p>
+                    </div>
+                </a>
+                <a href="javascript:goAddFavorite();" class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd" style="background-color: #586c94">
+                    </div>
+                    <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title">加我收藏</h4>
-                        <p class="weui-media-box__desc">收藏方法：微信-右上角-收藏，收藏后可在微信-我-收藏 中找到</p>
+                        <p class="weui-media-box__desc">收藏方法：微信-右上角-收藏</p>
                     </div>
                 </a>
             </div>
         </div>
     </div>
 
-    <div class="demos-content-padded">
+    <div style="padding-top: 5rem">
         <div class="weui-footer">
             <p class="weui-footer__text">Copyright © 2022 tzk</p>
         </div>
@@ -44,6 +52,16 @@
     <script type="text/javascript">
         function goSeqCheckPage() {
             var url = "seqcheck.html";
+            window.location.href = url;
+        }
+
+        function goIntroductionPage() {
+            var url = "introduction.html";
+            window.location.href = url;
+        }
+
+        function goAddFavorite() {
+            var url = "addfavorite.html";
             window.location.href = url;
         }
     </script>
